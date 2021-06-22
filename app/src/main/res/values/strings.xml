@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Virtual Keyboard &amp; Mouse</string>
+    <string name="ip_address_of_pc">IP Address of PC</string>
+    <string name="set_ip_address">Set IP Address</string>
+    <string name="ip_address_0_0_0_0">IP Address: 0.0.0.0</string>
+    <string name="port_0000">Port: 0000</string>
+    <string name="mouse">Mouse</string>
+    <string name="keyboard">Keyboard</string>
+    <string name="left_click">Left Click</string>
+    <string name="right_click">Right Click</string>
+    <string name="open_keyboard">Open Keyboard</string>
+</resources>
