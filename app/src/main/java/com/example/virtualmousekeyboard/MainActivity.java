@@ -2,7 +2,6 @@ package com.example.virtualmousekeyboard;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,11 +14,11 @@ import java.net.Socket;
 
 public class MainActivity extends AppCompatActivity {
     TextInputEditText txtIP;
-    Button btnKeyboard, btnMouse, btnSetIP;
+    Button btnKeys, btnSetIP;
     TextView lblIP;
 
-    private String OldIP;
-    private Boolean IsConnected;
+    public String OldIP;
+    private Boolean IsConnected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,30 +26,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txtIP = findViewById(R.id.txtIP);
-        btnKeyboard = findViewById(R.id.btnKeyboard);
-        btnMouse = findViewById(R.id.btnMouse);
+        btnKeys = findViewById(R.id.btnKeys);
         btnSetIP = findViewById(R.id.btnSetIP);
         lblIP = findViewById(R.id.lblIP);
 
-        btnMouse.setOnClickListener(v -> {
-            Log.d("socket method: ", String.valueOf(IsConnected));
-            if (IsConnected) {
-                Intent activity2Intent = new Intent(MainActivity.this, Mouse.class);
-                startActivity(activity2Intent);
-            }
-        });
-
-        btnKeyboard.setOnClickListener(v -> {
-            if (IsConnected) {
-                Intent activity2Intent = new Intent(MainActivity.this, MyKeyboard.class);
-                startActivity(activity2Intent);
-            }
+        btnKeys.setOnClickListener(v -> {
+            if (IsConnected)
+                startActivity(new Intent(MainActivity.this, Mouse.class));
+            else
+                Toast.makeText(MainActivity.this, "Please Connect to the PC's IP", Toast.LENGTH_SHORT).show();
         });
 
         btnSetIP.setOnClickListener(v -> {
             String ip = String.valueOf(txtIP.getText());
             if (ip.isEmpty() || !GlobalClass.validate(ip)) {
-                Toast.makeText(getApplicationContext(), "Enter a valid IP.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Enter a valid IP.", Toast.LENGTH_SHORT).show();
             } else {
 
                 if (GlobalClass.ipAddress != null && !GlobalClass.ipAddress.equals(ip)) {
@@ -61,10 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 GlobalClass.ipAddress = ip;
                 Sender sender = new Sender();
                 sender.execute("Connected");
-                Toast.makeText(getApplicationContext(), "IP: " + ip, Toast.LENGTH_SHORT).show();
-
-                lblIP.setText("IP Address: " + ip.toString() + ":4276");
-                txtIP.setText("");
+                Toast.makeText(MainActivity.this, "IP: " + ip, Toast.LENGTH_SHORT).show();
 
                 new Thread(() -> {
                     try {
@@ -73,22 +60,24 @@ public class MainActivity extends AppCompatActivity {
                         ex.printStackTrace();
                     }
                 }).start();
+
+                if(IsConnected) {
+                    lblIP.setText(String.format("IP Address: %s:4276", ip));
+                    txtIP.setText("");
+                }
             }
         });
     }
 
     public void isIpConnect(String ip) {
-        Socket socket = null;
+        Socket socket;
         try {
             socket = new Socket(ip, 4276);
             IsConnected = true;
             socket.close();
-            Log.d("Socket Method: ", String.valueOf(IsConnected));
         } catch (Exception e) {
-            Log.d("Socket Method Error: ", e.toString());
             e.printStackTrace();
             IsConnected = false;
-            Log.d("Socket Method: ", String.valueOf(IsConnected));
         }
     }
 }

@@ -3,58 +3,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15sp"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/border"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lblTouchPad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnLeftClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/left_click" />
+
+            <Button
+                android:id="@+id/btnRightClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:text="@string/right_click" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_weight="0"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/lblTouchPad"
+
+        <com.example.virtualmousekeyboard.PCKeyboard
+            android:id="@+id/pcKeyboardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/border" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btnLeftClick"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/left_click" />
-
-        <Button
-            android:id="@+id/btnRightClick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:text="@string/right_click" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:gravity="center">
-        <Button
-            android:id="@+id/btnOpenKeyboard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/open_keyboard" />
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@color/white" />
 
     </LinearLayout>
 

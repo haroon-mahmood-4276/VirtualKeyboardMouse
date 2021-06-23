@@ -89,7 +89,7 @@ public class PCKeyboard extends KeyboardView implements android.view.View.OnKeyL
         Sender sender = new Sender();
 
         switch(primaryCode){
-            case -5:; // 1/2 is pressed
+            case -5: // 1/2 is pressed
             case -1: //123 is pressed
                 setKeyboard(keyboard123First);
                 break;
@@ -121,6 +121,4 @@ public class PCKeyboard extends KeyboardView implements android.view.View.OnKeyL
         }
         Log.d(TAG, "keyCode=-1 *" + n1);
     }
-
-    public boolean isKeyBoardVisible(){ return getVisibility() == View.VISIBLE; }
 }

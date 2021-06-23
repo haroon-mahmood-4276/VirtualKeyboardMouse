@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="open_keyboard_amp_mouse"><![CDATA[Open Keyboard & Mouse]]></string>
+    <string name="_1_f2019027012_haroon_mahmood">1) [F2019027012] Haroon Mahmood</string>
+    <string name="_2_f2019027027_muhammad_moiz">2) [F2019027027] Muhammad Moiz</string>
+    <string name="_3_f2019027093_shaheryar_arshad">3) [F2019027093] Shaheryar Arshad</string>
+    <string name="_4_f2019027064_hina_butt">4) [F2019027064] Hina Butt</string>
+    <string name="group_members">Group Members</string>
+    <string name="ip_address_0_0_0_0">IP Address: 0.0.0.0</string>
+</resources>

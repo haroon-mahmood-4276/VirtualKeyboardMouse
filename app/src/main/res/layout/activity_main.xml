@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15sp"
             android:background="@drawable/border"
-            android:text="IP Address: 0.0.0.0" />
+            android:text="@string/ip_address_0_0_0_0" />
 
     </LinearLayout>
 
@@ -44,35 +44,69 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btnSetIP"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/set_ip_address" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnSetIP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/set_ip_address"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/btnKeys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:text="@string/open_keyboard_amp_mouse"
+                tools:ignore="ButtonStyle" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:gravity="center">
+        android:layout_marginTop="55sp"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnKeyboard"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:text="@string/keyboard" />
+            android:text="@string/group_members"
+            android:textSize="25sp" />
 
-        <Button
-            android:id="@+id/btnMouse"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:text="@string/mouse" />
+            android:text="@string/_1_f2019027012_haroon_mahmood"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_2_f2019027027_muhammad_moiz"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_3_f2019027093_shaheryar_arshad"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_4_f2019027064_hina_butt"
+            android:textSize="17sp" />
 
     </LinearLayout>
-
 
 </LinearLayout>
