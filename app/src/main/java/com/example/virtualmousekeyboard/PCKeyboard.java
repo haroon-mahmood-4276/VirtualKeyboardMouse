@@ -13,7 +13,7 @@ public class PCKeyboard extends KeyboardView implements android.view.View.OnKeyL
 
     private static final String TAG = PCKeyboard.class.getName();
 
-    Keyboard keyboardQwertySmall, keyboardQwertyCapital, keyboard123First, keyboard123Second,keyboardFunc;
+    Keyboard keyboardQwertySmall, keyboardQwertyCapital, keyboard123First, keyboard123Second, keyboardFunc;
     boolean isShiftOn = false;
 
 
@@ -37,7 +37,7 @@ public class PCKeyboard extends KeyboardView implements android.view.View.OnKeyL
 
         isShiftOn = true;
 
-        setKeyboard(keyboardQwertyCapital);
+        setKeyboard(keyboardQwertySmall);
         setPreviewEnabled(true);
         setOnKeyListener(this);
         setOnKeyboardActionListener(this);

@@ -63,14 +63,6 @@ public class Mouse extends AppCompatActivity {
                     }
                     mouseMoved = true;
                     return true;
-
-                case MotionEvent.ACTION_UP:
-                    Log.d("::::", "onTouch: ActionUp before condition" + GlobalClass.count);
-                    if (GlobalClass.count == 2 && !mouseMoved) {
-                        Log.d("::::", "onTouch: ActionUp After condition");
-                        new Sender().execute(GlobalClass.MOUSE_LEFT_CLICK);
-                        GlobalClass.count = 0;
-                    }
             }
             return true;
         });
@@ -81,7 +73,6 @@ public class Mouse extends AppCompatActivity {
         });
 
         btnRightClick.setOnClickListener(v -> {
-
             Sender sender = new Sender();
             sender.execute(GlobalClass.MOUSE_RIGHT_CLICK);
         });

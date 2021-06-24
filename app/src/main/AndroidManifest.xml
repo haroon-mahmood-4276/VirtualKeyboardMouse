@@ -28,7 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Mouse" />
-        <activity android:name=".MyKeyboard" />
 
 
     </application>
